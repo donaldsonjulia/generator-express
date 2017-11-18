@@ -46,31 +46,52 @@ Let's get started by getting a few details about your new project:`));
         name: 'name',
         message: 'Your project name',
         default: this.appname,
+      },
+      {
+        type: 'input',
+        name: 'dbhost',
+        message: `What is your Mongo database ${chalk.red('host')}? e.g. on mlab it would be this bit ${chalk.red('ds123456.mlab.com')}:51234/your-database`,
+      }, {
+        type: 'input',
+        name: 'dbport',
+        message: `What is your Mongo database ${chalk.red('port')}? e.g. on mlab it would be this bit ds123456.mlab.com:${chalk.red('51234')}/your-database`,
+      }, {
+        type: 'input',
+        name: 'dbname',
+        message: `What is your Mongo database ${chalk.red('name')}? e.g. on mlab it would be this bit ds123456.mlab.com:51234/${chalk.red('your-database')}`,
+      }, {
+        type: 'input',
+        name: 'dbuser',
+        message: `What is your Mongo database ${chalk.red('username')}? Remember: you will have had to create a user before doing this step`,
+      }, {
+        type: 'input',
+        name: 'dbpassword',
+        message: `And finally: what is your ${chalk.red('super secret')} Mongo database ${chalk.red('password')}?`,
       }];
 
-      if (!this.options['skip-db']) {
-        prompts.push([{
-          type: 'input',
-          name: 'dbhost',
-          message: `What is your Mongo database ${chalk.red('host')}? e.g. on mlab it would be this bit ${chalk.red('ds123456.mlab.com')}:51234/your-database`,
-        }, {
-          type: 'input',
-          name: 'dbport',
-          message: `What is your Mongo database ${chalk.red('port')}? e.g. on mlab it would be this bit ds123456.mlab.com:${chalk.red('51234')}/your-database`,
-        }, {
-          type: 'input',
-          name: 'dbname',
-          message: `What is your Mongo database ${chalk.red('name')}? e.g. on mlab it would be this bit ds123456.mlab.com:51234/${chalk.red('your-database')}`,
-        }, {
-          type: 'input',
-          name: 'dbuser',
-          message: `What is your Mongo database ${chalk.red('username')}? Remember: you will have had to create a user before doing this step`,
-        }, {
-          type: 'input',
-          name: 'dbpassword',
-          message: `And finally: what is your ${chalk.red('super secret')} Mongo database ${chalk.red('password')}?`,
-        }]);
-      }
+      // if (!this.options['skip-db']) {
+      //   prompts.push([{
+      //     type: 'input',
+      //     name: 'dbhost',
+      //     message: `What is your Mongo database ${chalk.red('host')}? e.g. on mlab it would be this bit ${chalk.red('ds123456.mlab.com')}:51234/your-database`,
+      //   }, {
+      //     type: 'input',
+      //     name: 'dbport',
+      //     message: `What is your Mongo database ${chalk.red('port')}? e.g. on mlab it would be this bit ds123456.mlab.com:${chalk.red('51234')}/your-database`,
+      //   }, {
+      //     type: 'input',
+      //     name: 'dbname',
+      //     message: `What is your Mongo database ${chalk.red('name')}? e.g. on mlab it would be this bit ds123456.mlab.com:51234/${chalk.red('your-database')}`,
+      //   }, {
+      //     type: 'input',
+      //     name: 'dbuser',
+      //     message: `What is your Mongo database ${chalk.red('username')}? Remember: you will have had to create a user before doing this step`,
+      //   }, {
+      //     type: 'input',
+      //     name: 'dbpassword',
+      //     message: `And finally: what is your ${chalk.red('super secret')} Mongo database ${chalk.red('password')}?`,
+      //   }]);
+      // }
 
       this.prompt(prompts, (props) => {
         this.props = props;
